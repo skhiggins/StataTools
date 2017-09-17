@@ -1,4 +1,6 @@
-*! v1.0 SKH seanhiggins@berkeley.edu
+*! v1.1 14aug2016 SKH seanhiggins@berkeley.edu
+**  08-14-2016 Fixed bug scml -> smcl; replace district with `select'
+** v1.0 SKH seanhiggins@berkeley.edu 
 
 capture program drop _uniquevals
 program define _uniquevals, byable(recall) rclass sortpreserve
@@ -35,8 +37,8 @@ end
 capture program drop randomselect
 program define randomselect, sortpreserve
 	syntax [if] [in], gen(string) [n(real -1) prop(real -1) select(string) seed(real -1)]
-	version 10
-	local die "di as error in scml"
+	
+	local die "di as error in smcl"
 
 	// Parse options
 	foreach opt in n prop {
@@ -68,7 +70,7 @@ program define randomselect, sortpreserve
 				local n = `prop'*r(N)
 			}
 			else {
-				qui _uniquevals district `if' `in'
+				qui _uniquevals `select' `if' `in'
 				local n = `prop'*r(unique)
 			}
 		}
