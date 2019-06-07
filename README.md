@@ -1,5 +1,6 @@
 # StataTools
-My user-written commands/packages for data analysis in Stata
+
+## My user-written commands/packages for data analysis in Stata
 
 The included packages are:
 - `exampleobs` prints (randomly selected) example observations and optionally stores the values in a local macro. This is useful to explore possible values of a variable in your data set without being biased by the ordering of the data.
@@ -11,4 +12,8 @@ The included packages are:
 
 These packages can be downloaded directly through Stata using `ssc install <package_name>, replace`
 
-Note: `uniquevals` and `latexify` are not yet available directly through Stata.
+Note: `uniquevals` and `latexify` are not yet available directly through Stata and do not yet include help file documentation.
+
+## Example scripts
+
+- `event_study.do` is a self-contained do file that generates an event study difference-in-differences graph.
